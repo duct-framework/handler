@@ -31,31 +31,36 @@
       (-> response (merge-response r) (guess-content-type (str url)))
       (assoc response :body nil))))
 
-(defn- ring-response [response]
+(defn static-response
+  "Given a Ring response map for a static resource, add appropriate headers."
+  [response]
   (update-response (:body response) response))
 
-(defn- make-handler [response]
+(defn static-handler
+  "Given a Ring response for a static resource, add appropriate headers and
+  create a handler that constantly returns that response."
+  [response]
   (fn
-    ([_] (ring-response response))
-    ([_ respond _] (respond (ring-response response)))))
+    ([_] (static-response response))
+    ([_ respond _] (respond (static-response response)))))
 
 (defmethod ig/init-key :duct.handler/static [_ response]
-  (make-handler response))
+  (static-handler response))
 
 (defmethod ig/init-key ::ok [_ response]
-  (make-handler (assoc response :status 200)))
+  (static-handler (assoc response :status 200)))
 
 (defmethod ig/init-key ::bad-request [_ response]
-  (make-handler (assoc response :status 400)))
+  (static-handler (assoc response :status 400)))
 
 (defmethod ig/init-key ::not-found [_ response]
-  (make-handler (assoc response :status 404)))
+  (static-handler (assoc response :status 404)))
 
 (defmethod ig/init-key ::method-not-allowed [_ response]
-  (make-handler (assoc response :status 405)))
+  (static-handler (assoc response :status 405)))
 
 (defmethod ig/init-key ::not-acceptable [_ response]
-  (make-handler (assoc response :status 406)))
+  (static-handler (assoc response :status 406)))
 
 (defmethod ig/init-key ::internal-server-error [_ response]
-  (make-handler (assoc response :status 500)))
+  (static-handler (assoc response :status 500)))
