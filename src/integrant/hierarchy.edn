@@ -1,4 +1,6 @@
-{:duct.handler/static                       [:duct/handler]
+{:duct.handler/file                         [:duct/handler]
+ :duct.handler/resource                     [:duct/handler]
+ :duct.handler/static                       [:duct/handler]
  :duct.handler.static/ok                    [:duct.handler/static]
  :duct.handler.static/bad-request           [:duct.handler/static]
  :duct.handler.static/not-found             [:duct.handler/static]
