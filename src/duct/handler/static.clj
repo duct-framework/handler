@@ -31,15 +31,10 @@
       (-> response (merge-response r) (guess-content-type (str url)))
       (assoc response :body nil))))
 
-(defn static-response
-  "Given a Ring response map for a static resource, add appropriate headers."
-  [response]
+(defn- static-response [response]
   (update-response (:body response) response))
 
-(defn static-handler
-  "Given a Ring response for a static resource, add appropriate headers and
-  create a handler that constantly returns that response."
-  [response]
+(defn- static-handler [response]
   (fn
     ([_] (static-response response))
     ([_ respond _] (respond (static-response response)))))
