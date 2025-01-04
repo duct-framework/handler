@@ -1,4 +1,4 @@
-# Duct Handlers
+# Duct Handler [![Build Status](https://github.com/duct-framework/handler/actions/workflows/test.yml/badge.svg)](https://github.com/duct-framework/handler/actions/workflows/test.yml)
 
 A Clojure library designed to ... well, that part is up to you.
 
