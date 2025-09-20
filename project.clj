@@ -1,4 +1,4 @@
-(defproject org.duct-framework/handler "0.1.2"
+(defproject org.duct-framework/handler "0.1.3"
   :description "Common Ring handlers for the Duct framework"
   :url "https://github.com/duct-framework/handler"
   :license {:name "Eclipse Public License"

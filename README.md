@@ -10,11 +10,11 @@ framework.
 
 Add the following dependency to your deps.edn file:
 
-    org.duct-framework/handler {:mvn/version "0.1.2"}
+    org.duct-framework/handler {:mvn/version "0.1.3"}
 
 Or to your Leiningen project file:
 
-    [org.duct-framework/handler "0.1.2"]
+    [org.duct-framework/handler "0.1.3"]
 
 ## Usage
 
