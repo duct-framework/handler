@@ -1,0 +1,60 @@
+{:duct.handler/file
+ {:doc
+  "Creates a Ring handler that serves static files from the local filesystem.
+
+  Takes the following options:
+  - `:paths` - a map of path strings to middleware option maps
+  - `:not-found` - a response map to be returned if no path matches
+
+  The paths connect a top-level path prefix to a set of options used by the
+  [file-response][1] function in Ring. The most commonly used option is `:root`,
+  which is a path to the directory that contains the files to be served.
+
+  If the `:not-found` option is not supplied, `nil` is returned from the
+  handler.
+
+  [1]: https://ring-clojure.github.io/ring/ring.util.response.html#var-file-response"}
+ :duct.handler/resource
+ {:doc
+  "Creates a Ring handler that serves static files from the JVM classpath.
+
+  Takes the following options:
+  - `:paths` - a map of path strings to middleware option maps
+  - `:not-found` - a response map to be returned if no path matches
+
+  The paths connect a top-level path prefix to a set of options used by the
+  [resource-response][1] function in Ring. The most commonly used option is
+  `:root`, which is a path prefix shared by the resources to be served.
+
+  If the `:not-found` option is not supplied, `nil` is returned from the
+  handler when a resource is not found.
+
+  [1]: https://ring-clojure.github.io/ring/ring.util.response.html#var-resource-response"}
+ :duct.handler/static
+ {:doc
+  "Creates a Ring handler that always returns the same Ring response, which is
+  defined by the value associated with this key."}
+ :duct.handler.static/ok
+ {:doc
+  "Creates a Ring handler that always returns the same '200 OK' Ring response,
+  defined by the value associated with this key. The `:status` is always 200."}
+ :duct.handler.static/bad-request
+ {:doc
+  "Creates a Ring handler that always returns the same '400 Bad Request' Ring
+  response, defined by the value associated with this key. The `:status` is
+  always 400."}
+ :duct.handler.static/not-found
+ {:doc
+  "Creates a Ring handler that always returns the same '404 Not Found' Ring
+  response, defined by the value associated with this key. The `:status` is
+  always 404."}
+ :duct.handler.static/method-not-allowed
+ {:doc
+  "Creates a Ring handler that always returns the same '405 Method Not Allowed'
+  Ring response, defined by the value associated with this key. The `:status` is
+  always 405."}
+ :duct.handler.static/internal-server-error
+ {:doc
+  "Creates a Ring handler that always returns the same '500 Internal Error' Ring
+  response, defined by the value associated with this key. The `:status` is
+  always 500."}}
