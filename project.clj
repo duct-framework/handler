@@ -5,4 +5,4 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.12.2"]
                  [integrant "1.0.0"]
-                 [ring/ring-core "1.15.1"]])
+                 [ring/ring-core "1.15.2"]])
